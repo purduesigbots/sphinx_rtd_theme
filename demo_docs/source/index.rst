@@ -1,5 +1,7 @@
-Read the Docs Theme Demo
-************************
+
+*****************************
+Read the Docs Theme Demo Docs
+*****************************
 
 These documents are used to test and stress test the Read the Docs Theme.
 

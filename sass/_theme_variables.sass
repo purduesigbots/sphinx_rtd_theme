@@ -2,29 +2,68 @@
 // that are set in wyrm_core/wy_variables.sass. You'll find wyrm in bower_components if you're looking
 // for a reference.
 
+//                    //
+// PROS Modifications //
+//                    //
+$purdue-gold:                         #E6B85C
+$purdue-gold-dark:                    #B89349
+$purdue-blue:                         #A3D6D7
+
+$link-color:                          $purdue-gold
+$link-color-visited:                  $purdue-gold-dark
+$link-color-hover:                    lighten($link-color, 25%)
+$link-color-alt:                      $purdue-gold
+$section-background-color:            $gray-darker
+$text-color:                          $gray-lighter
+$text-medium:                         $gray-lighter
+$text-dark:                           $gray-dark
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700)
+$base-font-family:                    "Montserrat", Helvetica, Arial, sans-serif
+$custom-font-family:                  "Montserrat", Helvetica, Arial, sans-serif
+$custom-font-family2:                 "Montserrat", Helvetica, Arial, sans-serif
+
+$text-code-color:                     $purdue-blue
+$text-code-background-color:          $gray
+$text-code-border-color:              $gray
+$text-viewcode-color:                 $purdue-gold
+$text-codexref-color:                 $purdue-gold
+
+$class-background-color:              $text-code-background-color
+$class-text-color:                    $text-code-color
+$class-text-dark-color:               darken($class-text-color, 10%)
+$method-background-color:             $text-code-background-color
+$method-text-color:                   $text-code-color
+$method-text-dark-color:              darken($method-text-color, 15%)
+$class-color:                         $purdue-blue
+$method-color:                        $gray
+
+$table-background-color:              transparent
+$table-border-color:                  $gray-light
+$table-stripe-color:                  $gray-dark
+$table-bg-hover-color:                hsl(0,0%,85%)
+$table-head-background-color:         $table-stripe-color
+$table-head-color:                    $text-color
+
+$button-neutral-background-color:     $gray
+$version-text-color:                  $gray-darker
+
+$highlight-color:                     $purdue-gold
+
+$input-background-color:              $gray
+// End main PROS Modifications //
+
 $font-awesome-dir:                    "../fonts/"
 $static-img:                          "../img/"
-
-$nav-content-width:                   800px
-$nav-media-query:                     (($nav-desktop-width) + ($nav-content-width))
-
 $mathjax-color:                       $text-color
 
 $headerlink-color:                    $text-color
 
-// Code colors
-$text-viewcode-color:                 $green
-$text-codexref-color:                 $text-color
-
-// Definition list colors
-$class-color:                         $blue
-$method-color:                        $gray
-
 // GUI label color
-$guilabel-color:                      $blue
+$guilabel-color:                      $purdue-gold-dark
 
 // Footer colors
-$footer-color:                        $text-medium
+$footer-color:                        $text-color
 
 // Menu colors
 $menu-vertical-background-color:      $section-background-color
@@ -42,25 +81,20 @@ $menu-link-dark:                      $text-dark
 $menu-link-medium:                    $text-medium
 $menu-link-light:                     $text-light
 $menu-link-active:                    $white
+$menu-link-active-hover:              $purdue-gold
 
 // Navigation colors
 $nav-background-color:                $menu-background-color
-$nav-search-background-color:         $blue
+$nav-search-background-color:         $purdue-gold
 $nav-search-color:                    $section-background-color
-$nav-link-color:                      $blue
-$nav-link-color-visited:              $purple
-$nav-link-color-hover:                lighten($nav-link-color, 6%) !default
-$nav-link-color-alt:                  hsl(33, 100%, 51%)
+$nav-link-color:                      $link-color
+$nav-link-color-visited:              $link-color-visited
+$nav-link-color-hover:                $link-color-hover
+$nav-link-color-alt:                  $link-color-alt
 
 // Sidebar colors
 $sidebar-background-color:            $table-stripe-color
 $sidebar-border-color:                $table-border-color
 $sidebar-title-background-color:      $table-border-color
 
-// Sphinx highlight color
-$highlight-color:                     $yellow
-
-$base-font-family:                    "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif
-$custom-font-family:                  "Roboto Slab", "ff-tisa-web-pro", "Georgia", Arial, sans-serif
-$custom-font-family2:                 Georgia, serif
 $code-font-family:                    Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace

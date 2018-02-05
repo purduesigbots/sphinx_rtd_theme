@@ -78,6 +78,8 @@
     position: relative
     background: $menu-vertical-background-color
     border: none
+    border-bottom: solid 1px darken($menu-vertical-background-color, 20%)
+    border-top: solid 1px darken($menu-vertical-background-color, 20%)
     padding-left: $gutter -4px
     +font-smooth
     &:hover
@@ -91,10 +93,6 @@
       font-size: .8em
       line-height: 1.6em
       color: darken($menu-link-medium, 30%)
-
-  li.toctree-l1.current > a
-    border-bottom: solid 1px darken($menu-vertical-background-color, 20%)
-    border-top: solid 1px darken($menu-vertical-background-color, 20%)
 
   // This is the on state for pages beyond second level
   li.toctree-l1.current li.toctree-l2, li.toctree-l2.current li.toctree-l3
@@ -125,6 +123,8 @@
         display: block
         background: darken($menu-vertical-background-color, 25%)
         padding: $gutter / 4 $gutter * 3.5
+        border-top: none
+        border-bottom: none
     a:hover span.toctree-expand
       color: $menu-link-medium
     span.toctree-expand
@@ -158,7 +158,7 @@
       span.toctree-expand
         color: $menu-link-light
     &:active
-      background-color: $menu-logo-color
+      background-color: $menu-link-active-hover
       cursor: pointer
       color: $menu-link-active
       span.toctree-expand
@@ -197,7 +197,7 @@
     padding: $base-line-height / 6 $base-line-height / 4
     margin-bottom: $gutter / 2
     +font-smooth
-    &:hover
+    &:hover, &:active, &:focus
       background: rgba(255,255,255,.1)
     img.logo
       display: block  // display on its own line all the time
@@ -214,8 +214,46 @@
     margin-top: -1 * ($gutter / 4)
     margin-bottom: $gutter / 2
     font-weight: normal
-    color: rgba(255,255,255,.3)
-
+    color: $version-text-color
+  > div.version-dropdown
+    position: relative
+    display: inline-block
+  > select
+    -webkit-appearance: none
+    -moz-appearance: none
+    -ms-appearance: none
+    appearance: none
+    outline: 0
+    box-shadow: none
+    border: 0 !important
+    background: $menu-background-color
+    background-image: none
+    max-width: 8em
+    padding: .1em 1.5em .1em .5em
+    text-align-last: center
+    border-radius: 0em
+    box-shadow: none
+    font-family: $base-font-family
+    font-size: 1em
+    font-weight: normal
+    &:hover, &:active, &:focus
+      background: $menu-medium
+      color: $menu-light
+  /*&:after
+    content: "\f0d7"
+    font-size: 1em
+    line-height: 1.2em
+    font-family: FontAwesome
+    padding: .1em .5em
+    position: absolute
+    right: 0
+    top: 0
+    z-index: 1
+    text-align: center
+    width: 1.5em
+    height: 100%
+    pointer-events: none
+    box-sizing: border-box
 
 .wy-nav .wy-menu-vertical
   header
@@ -225,6 +263,21 @@
     &:hover
       background-color: $link-color
       color: $white
+
+select
+  border: 1px solid $input-border-color
+  background-color: $menu-background-color
+
+select
+  -webkit-appearance: none
+  -moz-appearance: none
+  -ms-appearance: none
+  appearance: none
+  outline: 0
+  box-shadow: none
+  border: 0 !important
+  background-color: #2c3e50
+  background-image: none
 
 [data-menu-wrap]
   +transition(all .2s ease-in)
@@ -247,7 +300,9 @@
 
 
 .wy-body-for-nav
-  background: $section-background-color
+  background: left repeat-y $section-background-color
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoxOERBMTRGRDBFMUUxMUUzODUwMkJCOThDMEVFNURFMCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoxOERBMTRGRTBFMUUxMUUzODUwMkJCOThDMEVFNURFMCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjE4REExNEZCMEUxRTExRTM4NTAyQkI5OEMwRUU1REUwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjE4REExNEZDMEUxRTExRTM4NTAyQkI5OEMwRUU1REUwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+EwrlwAAAAA5JREFUeNpiMDU0BAgwAAE2AJgB9BnaAAAAAElFTkSuQmCC)
+  background-size: $nav-desktop-width 1px
 
 .wy-grid-for-nav
   position: absolute
@@ -259,7 +314,7 @@
   top: 0
   bottom: 0
   left: 0
-  padding-bottom: 2em
+  padding-bottom: 2.5em
   width: $nav-desktop-width
   overflow-x: hidden
   overflow-y: hidden
@@ -309,7 +364,7 @@
 .wy-nav-content
   padding: $gutter $gutter * 2
   height: 100%
-  max-width: $nav-content-width
+  max-width: 800px
   margin: auto
 
 .wy-body-mask
@@ -341,6 +396,7 @@ footer
 .rst-breadcrumbs-buttons
   margin-top: 12px
   +clearfix
+
 
 #search-results
   .search li
@@ -390,7 +446,7 @@ footer
       height: 100%
       overflow: hidden
 
-@media screen and (min-width: $nav-media-query)
++media($desktop-wider)
   .wy-nav-content-wrap
     background: rgba(0,0,0,.05)
   .wy-nav-content

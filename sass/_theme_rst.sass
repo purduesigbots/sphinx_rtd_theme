@@ -23,8 +23,6 @@
     margin-bottom: $base-line-height
     p.caption
       font-style: italic
-    p:last-child.caption
-      margin-bottom: 0px
 
   div.figure.align-center
     text-align: center
@@ -57,6 +55,7 @@
     border: 1px solid $table-border-color
     padding: 0px
     overflow-x: auto
+    line-height: normal
     // 1px hack otherwise border won't show. lame
     margin: 1px 0 $base-line-height 0
     div[class^='highlight']
@@ -70,16 +69,17 @@
     margin: 0
     padding: $base-line-height / 2 $base-line-height / 2
     font-family: $code-font-family
+    font-size: 12px
+    line-height: normal
   div[class^='highlight'] pre
     white-space: pre
     margin: 0
     padding: $base-line-height / 2 $base-line-height / 2
     font-family: $code-font-family
-    display: block
-    overflow: auto
-  pre.literal-block, div[class^='highlight'] pre, .linenodiv pre
     font-size: 12px
     line-height: normal
+    display: block
+    overflow: auto
 
   @media print
     .codeblock, div[class^='highlight'], div[class^='highlight'] pre
@@ -90,6 +90,7 @@
     @extend .wy-alert
     .last
       margin-bottom: 0
+      color: $text-dark
   .admonition-title
     @extend .wy-alert-title
     @extend .fa
@@ -121,11 +122,7 @@
   .section ol p, .section ul p
     margin-bottom: $base-line-height / 2
   .line-block
-    margin-left: 0px
-    margin-bottom: $base-line-height
-  .line-block .line-block
     margin-left: $base-line-height
-    margin-bottom: 0px
 
   // Generics handling of headings and toc stuff.
   .topic-title
@@ -195,10 +192,7 @@
 
   // These are the little citation links [1] that show up within paragraphs.
   .footnote-reference, .citation-reference
-    vertical-align: baseline
-    position: relative
-    top: -0.4em
-    line-height: 0
+    vertical-align: super
     font-size: 90%
 
   // Tables! Sphinx LOVES TABLES. Most of wyrm assumes you're only going to use a table as a table
@@ -368,6 +362,16 @@
   .versionmodified
     font-style: italic
 
+// Table Header changes
+.wy-table
+  thead
+    color: $table-head-color
+
+.wy-table-odd td, .wy-table-striped tr:nth-child(2n-1) td
+  background-color: $table-background-color
+
+.wy-table-backed
+  background-color: $table-background-color
 
 // Mobile specific
 +media($mobile)
