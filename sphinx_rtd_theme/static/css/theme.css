@@ -5763,6 +5763,11 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
   background-color: transparent;
 }
 
+.wy-table-responsive p, .wy-table-responsive td {
+  white-space: normal !important;
+  margin-bottom: 0 !important;
+}
+
 @media screen and (max-width: 480px) {
   .rst-content .sidebar {
     width: 100%;
