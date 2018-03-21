@@ -115,6 +115,23 @@ Field list
     language, containing examples of all basic reStructuredText
     constructs and many advanced constructs.
 
+Methods
+~~~~~~~
+
+* `config_set <adi_port_config_set>`_
+* `config_get <adi_port_config_get>`_
+* `value_set <adi_value_set>`_
+* `value_get <adi_value_get>`_
+
+test
+
+* test
+* test
+* test
+
+ADIEncoder
+----------
+
 Bullet Lists
 ------------
 
@@ -150,7 +167,7 @@ Second list level
   - here is an inner bullet ``oh``
 
     - one more ``with an inline literally``. `yahoo <http://www.yahoo.com>`_
-      
+
       heh heh. child. try to beat this embed:
 
       .. literalinclude:: test_py_module/test.py
