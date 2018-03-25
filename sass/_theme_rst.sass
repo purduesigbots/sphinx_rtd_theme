@@ -88,13 +88,15 @@
   // These are the various note pullouts that sphinx applies
   .note, .attention, .caution, .danger, .error, .hint, .important, .tip, .warning, .seealso, .admonition-todo, .admonition
     @extend .wy-alert
+    background: $text-code-background-color
     .last
       margin-bottom: 0
-      color: $text-dark
+
   .admonition-title
     @extend .wy-alert-title
     @extend .fa
     @extend .fa-exclamation-circle
+    color: $version-text-color
     &:before
       margin-right: 4px
   .note, .seealso
