@@ -5463,6 +5463,8 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
   font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
   font-size: 12px;
   line-height: normal;
+  user-select: none;
+  pointer-events: none;
 }
 .rst-content div[class^='highlight'] pre {
   white-space: pre;
@@ -5608,6 +5610,9 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
 }
 .rst-content .wy-table-responsive.citation:last-child, .rst-content .wy-table-responsive.footnote:last-child {
   margin-bottom: 24px;
+}
+.rst-content table.docutils th {
+  border-color: #999;
 }
 .rst-content table.field-list {
   border: none;

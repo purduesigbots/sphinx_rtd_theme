@@ -71,6 +71,8 @@
     font-family: $code-font-family
     font-size: 12px
     line-height: normal
+    user-select: none
+    pointer-events: none
   div[class^='highlight'] pre
     white-space: pre
     margin: 0
@@ -227,6 +229,8 @@
   table.docutils
     @extend .wy-table
     @extend .wy-table-bordered-all
+    th
+      border-color: $table-border-color
     &:not(.field-list)
       @extend .wy-table-striped
   // This table is what gets spit out for auto-generated API stuff. I style it smaller bits of padding.
