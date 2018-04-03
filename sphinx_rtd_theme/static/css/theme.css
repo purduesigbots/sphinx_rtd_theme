@@ -4630,7 +4630,7 @@ code, .rst-content tt, .rst-content code {
   font-size: 75%;
   padding: 0 5px;
   font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
-  color: #A3D6D7;
+  color: #5fcde2;
   overflow-x: auto;
 }
 code.code-large, .rst-content tt.code-large {
@@ -5640,7 +5640,7 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
   line-height: normal;
 }
 .rst-content tt.literal, .rst-content tt.literal, .rst-content code.literal {
-  color: #A3D6D7;
+  color: #5fcde2;
 }
 .rst-content tt.xref, a .rst-content tt, .rst-content tt.xref, .rst-content code.xref, a .rst-content tt, a .rst-content code {
   font-weight: bold;
@@ -5670,13 +5670,13 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
   font-size: 90%;
   line-height: normal;
   background: white;
-  color: #A3D6D7;
-  border-top: solid 3px #eaf6f6;
+  color: #5fcde2;
+  border-top: solid 3px #b5e8f2;
   padding: 6px;
   position: relative;
 }
 .rst-content dl:not(.docutils) dt:before {
-  color: #eaf6f6;
+  color: #b5e8f2;
 }
 .rst-content dl:not(.docutils) dt .headerlink {
   color: #ccc;
