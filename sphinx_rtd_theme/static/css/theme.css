@@ -5632,7 +5632,7 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
   text-align: left;
 }
 .rst-content tt, .rst-content tt, .rst-content code {
-  color: #000;
+  color: #fff;
   padding: 2px 5px;
 }
 .rst-content tt big, .rst-content tt em, .rst-content tt big, .rst-content code big, .rst-content tt em, .rst-content code em {
@@ -5669,7 +5669,7 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
   margin: 6px 0;
   font-size: 90%;
   line-height: normal;
-  background: white;
+  background: #333;
   color: #5fcde2;
   border-top: solid 3px #b5e8f2;
   padding: 6px;
