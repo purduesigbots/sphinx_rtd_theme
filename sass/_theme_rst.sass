@@ -52,7 +52,9 @@
     margin-bottom: $base-line-height
 
   pre.literal-block, div[class^='highlight']
-    border: 1px solid $table-border-color
+    border: 1px solid $code-border-color
+    border-radius: .28571429rem
+    background: $text-code-background-color
     padding: 0px
     overflow-x: auto
     line-height: normal
@@ -65,7 +67,7 @@
   div[class^='highlight'] td.code
     width: 100%
   .linenodiv pre
-    border-right: solid 1px lighten($table-border-color, 2%)
+    border-right: solid 1px lighten($code-border-color, 2%)
     margin: 0
     padding: $base-line-height / 2 $base-line-height / 2
     font-family: $code-font-family
