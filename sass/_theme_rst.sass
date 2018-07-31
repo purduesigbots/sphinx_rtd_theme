@@ -253,8 +253,9 @@
   // These are the "literals" that get spit out when you mark stuff as ``code`` as your write.
   tt, code
     @extend code
-    color: $black
+    color: $text-color
     padding: 2px 5px
+    border: $code-border-color
     big, em
       font-size: 100% !important
       line-height: normal
@@ -290,13 +291,13 @@
       margin: $base-line-height / 4 0
       font-size: 90%
       line-height: normal
-      background: lighten($class-color, 50%)
-      color: $class-color
-      border-top: solid 3px lighten($class-color, 20%)
+      background: $class-background-color
+      color: $class-text-color
+      border-top: solid $code-border-color
       padding: $base-line-height / 4
       position: relative
       &:before
-        color: lighten($class-color, 20%)
+        color: $class-text-color
       .headerlink
         color: $text-color
         font-size: 100% !important
@@ -304,9 +305,9 @@
     dl dt
       margin-bottom: $base-line-height / 4
       border: none
-      border-left: solid 3px hsl(0,0%,80%)
-      background: hsl(0,0%,94%)
-      color: $method-color
+      border-left: solid 3px $code-border-color
+      background: $method-background-color
+      color: $method-text-color
       .headerlink
         color: $headerlink-color
         font-size: 100% !important
