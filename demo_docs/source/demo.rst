@@ -416,7 +416,7 @@ Admonitions
 .. WARNING:: Strong prose may provoke extreme mental exertion.
    Reader discretion is strongly advised.
 
-.. admonition:: And, by the way...
+.. admonition:: Section Link
 
    You can make up your own admonition too.
 
