@@ -21,7 +21,7 @@
 Read the Docs Sphinx Theme
 **************************
 
-.. contents:: 
+.. contents::
 
 View a working demo_ over on readthedocs.org_.
 
@@ -50,9 +50,13 @@ In your ``conf.py`` file:
 
 .. code:: python
 
+<<<<<<< HEAD
     import sphinx_rtd_theme
     html_theme = "sphinx_rtd_theme"
     html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+=======
+The theme is distributed on PyPI_ and can be installed with pip::
+>>>>>>> ebbf3d1697c6518a3e398144610b9951bd7ab583
 
 or (since v0.2.5):
 
@@ -233,7 +237,7 @@ Set up your environment
 #. Install sphinx_ into a virtual environment.
 
    .. code:: bash
-   
+
        pip install sphinx sphinxcontrib-httpdomain
 
 #. Install sass.
@@ -296,7 +300,12 @@ you should do the following:
 #. In the ``readthedocs.org`` repo, edit the ``bower.json`` file to point at the correct version (``sphinx-rtd-theme": "https://github.com/rtfd/sphinx-rtd-theme.git#$NEW_VERSION"``).
 #. In the ``readthedocs.org`` repo, run ``gulp build`` to update the distributed theme files.
 
+<<<<<<< HEAD
 TODO
 ====
+=======
+Contributing
+============
+>>>>>>> ebbf3d1697c6518a3e398144610b9951bd7ab583
 
 * Separate some sass variables at the theme level so you can overwrite some basic colors.

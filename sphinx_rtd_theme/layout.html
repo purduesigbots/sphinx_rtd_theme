@@ -78,7 +78,7 @@
     {%- if prev %}
         <link rel="prev" title="{{ prev.title|striptags|e }}" href="{{ prev.link|e }}"/>
     {%- endif %}
-  {%- endblock %}
+  {% endblock %}
   {%- block extrahead %} {% endblock %}
 
   {# Keep modernizr in head - http://modernizr.com/docs/#installing #}
@@ -136,7 +136,6 @@
 
           {% include "searchbox.html" %}
 
-          {% endblock %}
         </div>
 
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -170,11 +169,11 @@
       </nav>
 
 
-      {# PAGE CONTENT #}
       <div class="wy-nav-content">
         <div class="rst-content">
           {% include "breadcrumbs.html" %}
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+          {%- block document %}
            <div itemprop="articleBody">
             {% block body %}{% endblock %}
            </div>
@@ -182,8 +181,10 @@
             {% block comments %}{% endblock %}
            </div>
           </div>
+          {%- endblock %}
           {% include "footer.html" %}
         </div>
+      {%- endblock %}
       </div>
 
     </section>
@@ -193,27 +194,32 @@
 
   {% if not embedded %}
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'{{ url_root }}',
-            VERSION:'{{ release|e }}',
-            LANGUAGE:'{{ language }}',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'{{ '' if no_search_suffix else file_suffix }}',
-            HAS_SOURCE:  {{ has_source|lower }},
-            SOURCELINK_SUFFIX: '{{ sourcelink_suffix }}'
-        };
-    </script>
-    {%- for scriptfile in script_files %}
-      <script type="text/javascript" src="{{ pathto(scriptfile, 1) }}"></script>
-    {%- endfor %}
+    {# XXX Sphinx 1.8.0 made this an external js-file, quick fix until we refactor the template to inherert more blocks directly from sphinx #}
+    {% if sphinx_version >= "1.8.0" %}
+      <script type="text/javascript" id="documentation_options" data-url_root="{{ pathto('', 1) }}" src="{{ pathto('_static/documentation_options.js', 1) }}"></script>
+      {%- for scriptfile in script_files %}
+        {{ js_tag(scriptfile) }}
+      {%- endfor %}
+    {% else %}
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'{{ url_root }}',
+              VERSION:'{{ release|e }}',
+              LANGUAGE:'{{ language }}',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'{{ '' if no_search_suffix else file_suffix }}',
+              HAS_SOURCE:  {{ has_source|lower }},
+              SOURCELINK_SUFFIX: '{{ sourcelink_suffix }}'
+          };
+      </script>
+      {%- for scriptfile in script_files %}
+        <script type="text/javascript" src="{{ pathto(scriptfile, 1) }}"></script>
+      {%- endfor %}
+    {% endif %}
 
   {% endif %}
 
-  {# RTD hosts this file, so just load on non RTD builds #}
-  {% if not READTHEDOCS %}
-    <script type="text/javascript" src="{{ pathto('_static/js/theme.js', 1) }}"></script>
-  {% endif %}
+  <script type="text/javascript" src="{{ pathto('_static/js/theme.js', 1) }}"></script>
 
   {# STICKY NAVIGATION #}
   {% if theme_sticky_navigation %}

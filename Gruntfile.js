@@ -4,6 +4,9 @@ module.exports = function(grunt) {
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   grunt.initConfig({
+    // Read package.json
+    pkg: grunt.file.readJSON("package.json"),
+
     open : {
       dev: {
         path: 'http://localhost:1919'
@@ -32,27 +35,15 @@ module.exports = function(grunt) {
           {
               expand: true,
               flatten: true,
-              src: ['bower_components/lato-googlefont/Lato-Regular.ttf',
-                    'bower_components/lato-googlefont/Lato-Italic.ttf',
-                    'bower_components/lato-googlefont/Lato-Bold.ttf',
-                    'bower_components/lato-googlefont/Lato-BoldItalic.ttf'],
-              dest: 'sphinx_rtd_theme/static/fonts/',
+              src: ['fonts/Lato/*'],
+              dest: 'sphinx_rtd_theme/static/fonts/Lato',
               filter: 'isFile'
           },
           {
               expand: true,
               flatten: true,
-              src: ['bower_components/robotoslab-googlefont/RobotoSlab-Bold.ttf',
-                    'bower_components/robotoslab-googlefont/RobotoSlab-Regular.ttf'],
-              dest: 'sphinx_rtd_theme/static/fonts/',
-              filter: 'isFile'
-          },
-          {
-              expand: true,
-              flatten: true,
-              src: ['bower_components/inconsolata-googlefont/Inconsolata-Bold.ttf',
-                    'bower_components/inconsolata-googlefont/Inconsolata-Regular.ttf'],
-              dest: 'sphinx_rtd_theme/static/fonts/',
+              src: ['fonts/RobotoSlab/*'],
+              dest: 'sphinx_rtd_theme/static/fonts/RobotoSlab/',
               filter: 'isFile'
           }
         ]
